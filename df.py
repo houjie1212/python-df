@@ -29,7 +29,7 @@ def humanSize(size):
 
 try:
     with os.scandir(targetPath) as entries:
-        print("已用\t\t\t类型\t\t文件路径")
+        print("已用\t\t类型\t\t文件路径")
         print("-" * 90)
         totalSize = 0
         for entry in entries:
@@ -43,7 +43,7 @@ try:
             totalHumanSize = humanSize(totalSize)
             print(sizeHuman, end="")
             if len(sizeHuman) < 3:
-                print("", end="\t\t\t")
+                print("", end="\t\t")
             elif len(sizeHuman) < 8:
                 print("", end="\t\t")
             else:
