@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
+=======
+
+.idea
+>>>>>>> feat(df): create df file
