@@ -8,11 +8,17 @@ if len(sys.argv) == 2:
 else:
     targetPath = os.getcwd()
 
+errorPaths = []  # 错误文件路径
+
 
 def getdirsize(dir):
     size = 0
+
     for root, dirs, files in os.walk(dir):
-        size += sum([getsize(join(root, name)) for name in files])
+        try:
+            size += sum([getsize(join(root, name)) for name in files])
+        except OSError as ex:
+            errorPaths.append(ex)
     return size
 
 
@@ -56,5 +62,9 @@ try:
             print(entry.path)
         print("-" * 90)
         print("总计：%s" % totalHumanSize)
+        print("-" * 90)
+        print("错误文件列表：")
+        for i in errorPaths:
+            print(i)
 except FileNotFoundError:
     print("系统找不到指定的路径：%s" % targetPath)
