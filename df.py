@@ -63,8 +63,9 @@ try:
         print("-" * 90)
         print("总计：%s" % totalHumanSize)
         print("-" * 90)
-        print("错误文件列表：")
-        for i in errorPaths:
-            print(i)
+        if len(errorPaths) > 0:
+            print("错误文件列表：")
+            for i in errorPaths:
+                print(i)
 except FileNotFoundError:
     print("系统找不到指定的路径：%s" % targetPath)
